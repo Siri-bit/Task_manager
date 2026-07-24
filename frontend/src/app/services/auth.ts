@@ -11,7 +11,7 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private api = 'https://YOUR-RENDER-URL.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 

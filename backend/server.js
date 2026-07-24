@@ -6,7 +6,13 @@ const cors = require('cors');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:4200',
+    'https://your-frontend.vercel.app'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Test route - lets us check the server works before adding real features

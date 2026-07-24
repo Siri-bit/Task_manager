@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TaskService {
 
-  private api = 'http://localhost:5000/api/tasks';
+  private api = 'https://YOUR-RENDER-URL.onrender.com/api/tasks';
 
   constructor(private http: HttpClient) {}
 
