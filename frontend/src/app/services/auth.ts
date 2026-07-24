@@ -12,8 +12,8 @@ interface AuthResponse {
 })
 export class AuthService {
 
-  // Replace this with your actual Render backend URL
-  private api = 'https://task-manager-backend.onrender.com/api/auth';
+  // Replace with YOUR Render backend URL
+  private api = 'https://YOUR-RENDER-URL.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
