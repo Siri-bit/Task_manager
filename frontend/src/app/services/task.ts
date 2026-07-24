@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TaskService {
 
-  private api = 'https://task-manager-backend-fkoh.onrender.com/api/tasks';
+  private apiUrl = 'https://task-manager-backend-fkoh.onrender.com/api/tasks';
 
   constructor(private http: HttpClient) {}
 
