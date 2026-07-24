@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class TaskService {
 
-  private api = 'https://YOUR-RENDER-URL.onrender.com/api/tasks';
+  private apiUrl = 'http://localhost:5000/api/tasks';
 
   constructor(private http: HttpClient) {}
 
@@ -19,18 +19,18 @@ export class TaskService {
   }
 
   getTasks() {
-    return this.http.get(this.api, this.options());
+    return this.http.get(this.apiUrl, this.options());
   }
 
   createTask(task: any) {
-    return this.http.post(this.api, task, this.options());
+    return this.http.post(this.apiUrl, task, this.options());
   }
 
   updateTask(id: string, task: any) {
-    return this.http.put(`${this.api}/${id}`, task, this.options());
+    return this.http.put(`${this.apiUrl}/${id}`, task, this.options());
   }
 
   deleteTask(id: string) {
-    return this.http.delete(`${this.api}/${id}`, this.options());
+    return this.http.delete(`${this.apiUrl}/${id}`, this.options());
   }
 }
