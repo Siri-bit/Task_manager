@@ -11,16 +11,18 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private api = 'https://YOUR-RENDER-URL.onrender.com/api/auth';
+
+  // Replace this with your actual Render backend URL
+  private api = 'https://task-manager-backend.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
   register(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, { email, password });
+    return this.http.post(`${this.api}/register`, { email, password });
   }
 
   login(email: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { email, password }).pipe(
+    return this.http.post<AuthResponse>(`${this.api}/login`, { email, password }).pipe(
       tap((res) => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
