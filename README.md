@@ -1,13 +1,21 @@
 # Task Manager
 
-A full-stack task management app with authentication, built with Angular, 
-Node.js/Express, and MongoDB.
+Task Manager is a full-stack web application that allows users to securely register, log in, and manage their personal tasks. The application uses JWT-based authentication to protect user-specific data and demonstrates a complete Angular + Node.js + MongoDB workflow.
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+- MongoDB Atlas account
+- Angular CLI
 
 ## Features
 - User registration and login (JWT-based authentication)
 - Create, read, update, and delete tasks
 - Tasks are scoped per user (each user only sees their own tasks)
-- Responsive UI
+- Responsive Bootstrap-based UI
+- JWT Authentication
+- Secure password hashing using bcrypt
 
 ## Tech Stack
 - **Frontend**: Angular, TypeScript
@@ -21,8 +29,43 @@ Node.js/Express, and MongoDB.
 1. `cd backend`
 2. `npm install`
 3. Create a `.env` file with:
+   ```env
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>/<database>?retryWrites=true&w=majority
+JWT_SECRET=<your_secret_key>
+```
 
-4. 4. `node server.js`
+## Project Structure
+Task_manager/
+├── backend/
+│ ├── middleware/
+│ ├── models/
+│ ├── routes/
+│ ├── server.js
+│ └── package.json
+│
+├── frontend/
+│ ├── src/
+│ ├── angular.json
+│ └── package.json
+│
+└── README.md
+
+## API Endpoints
+
+Authentication
+
+POST /api/auth/register
+POST /api/auth/login
+
+Tasks
+
+GET /api/tasks
+POST /api/tasks
+PUT /api/tasks/:id
+DELETE /api/tasks/:id
+
+5. `node server.js`
 
 ### Frontend
 1. `cd frontend`
@@ -30,9 +73,15 @@ Node.js/Express, and MongoDB.
 3. `ng serve`
 4. Visit `http://localhost:4200`
 
+## Deployment
+
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
+
 ## Live Demo
 - Backend: https://task-manager-backend-fkoh.onrender.com
-- Frontend: 
+- Frontend: https://task-manager-541z9uyac-sirishas-projects-45e28e4f.vercel.app
 
 ## AI Tools Used
 - **ChatGPT** — used for scaffolding the Angular frontend (components, 
@@ -56,8 +105,15 @@ Node.js/Express, and MongoDB.
   bcrypt, JWT signing/verification, and protecting routes with middleware
 - Debugged and fixed API URL mismatches between local development and 
   the deployed backend (multiple iterations visible in commit history)
-- [Add: whatever you personally decided/fixed in the frontend, e.g., 
-  "which fields to show in the task form", "styling decisions", etc.]
+- ## What I Implemented Myself
+
+- Designed the task dashboard layout and responsive UI.
+- Implemented Angular routing between Login, Register, and Dashboard.
+- Integrated JWT authentication with Angular services.
+- Connected the Angular frontend with the deployed Express backend.
+- Implemented CRUD operations with automatic UI refresh after every action.
+- Added task statistics (Total, Completed, Pending).
+- Styled the application using Bootstrap and custom CSS for a modern user experience.
 
 ## Challenges Faced
 - MongoDB Atlas connection failures due to DNS (SRV record) restrictions 
@@ -74,6 +130,9 @@ Node.js/Express, and MongoDB.
 - Add pagination and tag-based filtering in the UI
 - Add automated tests for the API routes
 - Deploy the frontend properly with a custom domain
+## License
+
+This project is developed as part of the Binaried AI Full Stack Developer Internship assignment.
 
 
 ## Author
