@@ -12,7 +12,6 @@ interface AuthResponse {
 })
 export class AuthService {
 
-  // Replace this with your actual Render backend URL
   private apiUrl = 'https://task-manager-backend-fkoh.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}

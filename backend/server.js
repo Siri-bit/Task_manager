@@ -9,7 +9,8 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:4200',
-    'https://your-frontend.vercel.app'
+        'https://task-manager-541z9uyac-sirishas-projects-45e28e4f.vercel.app'
+
   ],
   credentials: true
 }));
@@ -18,6 +19,12 @@ app.use(express.json());
 // Test route - lets us check the server works before adding real features
 app.get('/', (req, res) => {
   res.send('Task Manager API is running');
+});
+
+
+app.use((req, res, next) => {
+  console.log("Incoming:", req.method, req.url);
+  next();
 });
 
 app.use('/api/auth', require('./routes/auth'));
