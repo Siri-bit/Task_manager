@@ -7,11 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: [
-    'http://localhost:4200',
-        'https://task-manager-541z9uyac-sirishas-projects-45e28e4f.vercel.app'
-
-  ],
+  origin: true,
   credentials: true
 }));
 app.use(express.json());
